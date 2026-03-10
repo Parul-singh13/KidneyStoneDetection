@@ -3,7 +3,13 @@ from ultralytics import YOLO
 import numpy as np
 from PIL import Image
 
-model = YOLO("best.pt")
+MODEL_PATH = "best.pt"
+if not os.path.exists(MODEL_PATH):
+
+    url = "https://drive.google.com/uc?id=1zsZYO1tJlWHaOidtIxKJsYk93VIm_DgP"
+    gdown.download(url, MODEL_PATH, quiet=False)
+
+model = YOLO(MODEL_PATH)
 
 st.title("Kidney Stone Detection System")
 
@@ -60,4 +66,5 @@ if uploaded_file is not None:
         st.info(f"Confidence Score: {max_conf*100:.2f}%")
 
     else:
+
         st.error("❌ No Kidney Stone Detected")
