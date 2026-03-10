@@ -1,3 +1,5 @@
+import os
+import gdown
 import streamlit as st
 from ultralytics import YOLO
 import numpy as np
@@ -36,6 +38,7 @@ if uploaded_file is not None:
 
     else:
         st.error("❌ No Kidney Stone Detected")
+
 
 
 
